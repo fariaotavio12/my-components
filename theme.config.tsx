@@ -1,13 +1,17 @@
+import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>Components</span>,
+  logo: <span>My Project</span>,
   project: {
-    link: 'my-components-psi.vercel.app',
+    link: 'https://github.com/shuding/nextra-docs-template',
   },
-  docsRepositoryBase: 'my-components-psi.vercel.app',
+  chat: {
+    link: 'https://discord.com',
+  },
+  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Components Reactor Documentation',
+    text: 'Nextra Docs Template',
   },
 }
 
