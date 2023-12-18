@@ -1,0 +1,154 @@
+# Padrões de Desenvolvimento Front-End da Canto de Minas
+
+Este documento estabelece os padrões de desenvolvimento front-end da Canto de Minas, visando assegurar qualidade, consistência e eficiência nos projetos. Ele é fundamental para a perenidade dos sistemas, assegurando que, em um cenário hipotético de mudanças na equipe, haja um guia estruturado para suportar a transição e manter a continuidade dos trabalhos. As práticas e padrões aqui devem ser definidos, mantidos e evoluídos pela equipe, sempre através de discussões colaborativas e consenso, refletindo as necessidades do projeto e promovendo a melhoria contínua.
+
+## Stack
+
+### Biblioteca/Framework de JavaScript
+
+- **React:** Escolhido por sua eficiência, flexibilidade e amplo suporte da comunidade, além de ser a tecnologia que a equipe mais domina.
+
+### Linguagem
+
+- **TypeScript:** Utilizado para adicionar tipagem estática ao JavaScript, aumentando a confiabilidade e a manutenção do código.
+
+### Gerenciamento de Estado
+
+- **Context:** Escolhido por ser nativo do React, bem mais simples do que soluções robustas como Redux e suficiente para as necessidades da equipe.
+
+### Gerenciamento de Rotas
+
+- **React Router DOM:** Escolhido por ser o padrão para projetos React e a solução com a qual a equipe está mais acostumada.
+
+### Requisições
+
+- **Axios:** Usado para realizar requisições HTTP, principalmente devido à possibilidade de configurar interceptores e por lidar automaticamente com cookies HTTP-only.
+- **TanStack Query:** Escolhido por sua eficiência no gerenciamento de requisições, encapsulando-as e permitindo cache, além de diversas configurações extras.
+
+### Framework de CSS
+
+- **Tailwind:** Utilizado pela sua grande popularidade, que garante confiabilidade, e pela abordagem de design utility-first.
+
+### Ferramental de Front-End
+
+- **Vite:** Escolhido como substituto ao deprecado create-react-app, oferecendo uma boa solução sem gerar muita curva de aprendizado.
+
+### Biblioteca de Componentes
+
+- **shadcn-ui:** Adotada por seus componentes acessíveis e facilmente customizáveis, além de funcionar nativamente com Tailwind.
+
+### Testes
+
+- **Cypress:** Utilizado para testes end-to-end.
+- **Jest:** Escolhido para testes unitários e de integração com suporte para TypeScript. (ainda está sendo estudado)
+- **React Testing Library:** Implementado por ser nativo com React, facilitando a criação de testes mais naturais.
+
+### Bibliotecas de Utilidade
+
+- **date-fns:** Usado para manipulação de datas, resolvendo inconsistências nas conversões de data do JavaScript.
+- **react-dropzone:** Adotado para a implementação de áreas de arrastar e soltar arquivos.
+- **swiper:** Escolhido para a criação de carrosséis modernos e interativos.
+- *(definir biblioteca para máscaras de input)*
+
+### Ferramentas de Linting e Formatação
+
+- **Prettier:** Implementado para garantir a consistência do formato do código.
+- **Tailwind Intellisense:** Utilizado para auxiliar no desenvolvimento com Tailwind CSS.
+- **ESLint:** Para configurações de padronização de código mais avançadas.
+
+### Sistema de Controle de Versão
+
+- **GitHub:** Escolhido por ser a plataforma mais popular e familiar para a equipe.
+
+### CI/CD
+
+- **GitHub Actions:** Adotado para automação de CI/CD, facilitando a integração e entrega contínua. (ainda está sendo estudado)
+
+## Padrões
+
+### Estrutura de Pastas
+
+
+└── src/
+
+├── components/
+
+│ ├── elements/
+
+│ │ └── (Componentes menores, como botões e inputs)
+
+│ ├── modules/
+
+│ │ └── (Componentes complexos, como formulários e tabelas)
+
+│ └── layout/
+
+│ └── (Componentes de layout, como cabeçalhos e rodapés)
+
+├── lib/
+
+│ ├── api/
+
+│ │ ├── axios/
+
+│ │ │ └── (Configurações e interceptadores Axios)
+
+│ │ └── tanstackQuery/
+
+│ │ └── (Configurações e requisições com TanStack Query)
+
+│ ├── contexts/
+
+│ │ └── (Estados globais com Context)
+
+│ ├── hooks/
+
+│ │ └── (Custom hooks globais)
+
+│ ├── types/
+
+│ │ └── (Definições de tipos globais)
+
+│ └── utils/
+
+│ └── (Funções utilitárias globais)
+
+├── pages/
+
+│ └── (Componentes de página)
+
+├── routes/
+
+│ └── (Definição de rotas)
+
+├── styles/
+
+│ └── (Estilos globais)
+
+├── App.tsx
+
+├── index.tsx
+
+└── react-app-env.d.ts
+
+
+### Nomenclaturas
+
+- Os nomes devem ser descritivos e sem abreviações.
+- **Pastas:** camelCase.
+- **Arquivos:**
+  - Se exportam um único elemento, devem ter o mesmo nome do elemento.
+  - Se exportam múltiplos elementos, devem ter um nome que descreva sua funcionalidade geral.
+- **Componentes:** camelCase, com a extensão “.tsx”.
+- **Funções:** camelCase, com a extensão “.ts”.
+- **Hooks:** camelCase, começando com “use” e com a extensão “.ts”. Ex: useValidation.ts.
+- **Contexts:** camelCase, terminando com “Context” e com a extensão “.tsx”. Ex: LoadingScreenContext.tsx.
+- **Tipos:** camelCase, com a extensão “.d.ts”. Ex: userType.d.ts.
+- **TanStack Query Hooks:** camelCase, começando com “use” e terminando com “Queries” para arquivos com métodos de leitura, e com “Mutations” para arquivos com métodos de alteração de dados. Ex: useUserQueries, useUserMutations.
+
+### Elementos de Código
+
+- **Constantes globais:** UPPER_CASE.
+- **Demais constantes e variáveis:** camelCase.
+- **Componentes:** camelCase.
+- **Funções:** camelCase.
