@@ -1,0 +1,143 @@
+:root {
+	--shiki-color-text: #af1919;
+	--shiki-color-background: red;
+	--shiki-token-constant: #1976d2;
+	--shiki-token-string: #22863a;
+	--shiki-token-comment: #aaa;
+	--shiki-token-keyword: #d32f2f;
+	--shiki-token-parameter: #ff9800;
+	--shiki-token-function: #6f42c1;
+	--shiki-token-string-expression: #22863a;
+	--shiki-token-punctuation: #212121;
+	--shiki-token-link: #22863a;
+	--nextra-shiki-deleted: #f00;
+	--nextra-shiki-inserted: #f00;
+	--nextra-shiki-highlight: #f00;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 224 71.4% 4.1%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 224 71.4% 4.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 224 71.4% 4.1%;
+
+		--primary: 220.9 39.3% 11%;
+		--primary-foreground: 210 20% 98%;
+
+		--secondary: 220 14.3% 95.9%;
+		--secondary-foreground: 220.9 39.3% 11%;
+
+		--muted: 220 14.3% 95.9%;
+		--muted-foreground: 220 8.9% 46.1%;
+
+		--accent: 220 14.3% 95.9%;
+		--accent-foreground: 220.9 39.3% 11%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 220 13% 91%;
+		--input: 220 13% 91%;
+		--ring: 224 71.4% 4.1%;
+
+		--blue: 220.9 39.3% 11%;
+		--blue-foreground: 220.9 39.3% 11%;
+		--radius: 0.5rem;
+
+		--blue: 203.6, 92.5%, 44.9%;
+		--blue-foreground: 210 20% 98%;
+	}
+
+	.dark {
+		--background: 224 71.4% 4.1%;
+		--foreground: 210 20% 98%;
+
+		--card: 224 71.4% 4.1%;
+		--card-foreground: 210 20% 98%;
+
+		--popover: 224 71.4% 4.1%;
+		--popover-foreground: 210 20% 98%;
+
+		--primary: 210 20% 98%;
+		--primary-foreground: 220.9 39.3% 11%;
+
+		--secondary: 215 27.9% 16.9%;
+		--secondary-foreground: 210 20% 98%;
+
+		--muted: 215 27.9% 16.9%;
+		--muted-foreground: 217.9 10.6% 64.9%;
+
+		--accent: 215 27.9% 16.9%;
+		--accent-foreground: 210 20% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 215 27.9% 16.9%;
+		--input: 215 27.9% 16.9%;
+		--ring: 216 12.2% 83.9%;
+
+		--blue: 203.6, 92.5%, 44.9%;
+		--blue-foreground: 210 20% 98%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.ripple {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.7);
+	transform: scale(0);
+	animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+	to {
+		transform: scale(4);
+		opacity: 0;
+	}
+}
+
+.ripple-button:hover {
+	filter: contrast(90%);
+}
+
+.ripple-button:disabled,
+.ripple-button[disabled] {
+	cursor: not-allowed;
+	filter: contrast(80%);
+}
+
+
+
+::-webkit-scrollbar {
+	@apply w-1 h-1;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-background;
+}

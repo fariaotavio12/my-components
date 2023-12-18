@@ -1,14 +1,15 @@
 {
-  "index": "Introdução",
-  "cantoDeminas" : "Canto de Minas",
+  "index": "Introduction",
   "about": {
     "title": "About",
     "type": "page"
   },
+  "configureNext": "Configure Next",
   "contact": {
     "title": "Contact ↗",
     "type": "page",
     "href": "https://www.instagram.com/faria.otavio/",
     "newWindow": true
-  }
+  },
+  "Cantodeminas": "Canto De Minas"
 }

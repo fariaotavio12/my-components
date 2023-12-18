@@ -1,154 +1,102 @@
-# Padrões de Desenvolvimento Front-End da Canto de Minas
+# Front-End Development Standards at Canto de Minas
 
-Este documento estabelece os padrões de desenvolvimento front-end da Canto de Minas, visando assegurar qualidade, consistência e eficiência nos projetos. Ele é fundamental para a perenidade dos sistemas, assegurando que, em um cenário hipotético de mudanças na equipe, haja um guia estruturado para suportar a transição e manter a continuidade dos trabalhos. As práticas e padrões aqui devem ser definidos, mantidos e evoluídos pela equipe, sempre através de discussões colaborativas e consenso, refletindo as necessidades do projeto e promovendo a melhoria contínua.
+This document establishes the front-end development standards at Canto de Minas, aiming to ensure quality, consistency, and efficiency in projects. It is crucial for the longevity of systems, ensuring that, in a hypothetical scenario of team changes, there is a structured guide to support the transition and maintain work continuity. The practices and standards here should be defined, maintained, and evolved by the team, always through collaborative discussions and consensus, reflecting project needs and promoting continuous improvement.
 
 ## Stack
 
-### Biblioteca/Framework de JavaScript
+### JavaScript Library/Framework
 
-- **React:** Escolhido por sua eficiência, flexibilidade e amplo suporte da comunidade, além de ser a tecnologia que a equipe mais domina.
+- **React:** Chosen for its efficiency, flexibility, broad community support, and being the technology the team is most proficient in.
 
-### Linguagem
+### Language
 
-- **TypeScript:** Utilizado para adicionar tipagem estática ao JavaScript, aumentando a confiabilidade e a manutenção do código.
+- **TypeScript:** Used to add static typing to JavaScript, increasing code reliability and maintenance.
 
-### Gerenciamento de Estado
+### State Management
 
-- **Context:** Escolhido por ser nativo do React, bem mais simples do que soluções robustas como Redux e suficiente para as necessidades da equipe.
+- **Context:** Chosen for being native to React, simpler than robust solutions like Redux, and sufficient for the team's needs.
 
-### Gerenciamento de Rotas
+### Routing
 
-- **React Router DOM:** Escolhido por ser o padrão para projetos React e a solução com a qual a equipe está mais acostumada.
+- **React Router DOM:** Chosen as the standard for React projects and the solution the team is most accustomed to.
 
-### Requisições
+### HTTP Requests
 
-- **Axios:** Usado para realizar requisições HTTP, principalmente devido à possibilidade de configurar interceptores e por lidar automaticamente com cookies HTTP-only.
-- **TanStack Query:** Escolhido por sua eficiência no gerenciamento de requisições, encapsulando-as e permitindo cache, além de diversas configurações extras.
+- **Axios:** Used for making HTTP requests, mainly due to the ability to configure interceptors and handle HTTP-only cookies.
+- **TanStack Query:** Chosen for its efficiency in request management, encapsulating them and allowing caching, along with various extra configurations.
 
-### Framework de CSS
+### CSS Framework
 
-- **Tailwind:** Utilizado pela sua grande popularidade, que garante confiabilidade, e pela abordagem de design utility-first.
+- **Tailwind:** Used for its widespread popularity, ensuring reliability, and its utility-first design approach.
 
-### Ferramental de Front-End
+### Front-End Tooling
 
-- **Vite:** Escolhido como substituto ao deprecado create-react-app, oferecendo uma boa solução sem gerar muita curva de aprendizado.
+- **Vite:** Chosen as a replacement for the deprecated create-react-app, offering a good solution without a steep learning curve.
 
-### Biblioteca de Componentes
+### Component Library
 
-- **shadcn-ui:** Adotada por seus componentes acessíveis e facilmente customizáveis, além de funcionar nativamente com Tailwind.
+- **shadcn-ui:** Adopted for its accessible and easily customizable components, natively working with Tailwind.
 
-### Testes
+### Testing
 
-- **Cypress:** Utilizado para testes end-to-end.
-- **Jest:** Escolhido para testes unitários e de integração com suporte para TypeScript. (ainda está sendo estudado)
-- **React Testing Library:** Implementado por ser nativo com React, facilitando a criação de testes mais naturais.
+- **Cypress:** Used for end-to-end testing.
+- **Jest:** Chosen for unit and integration testing with TypeScript support. (still under consideration)
+- **React Testing Library:** Implemented for being native to React, facilitating the creation of more natural tests.
 
-### Bibliotecas de Utilidade
+### Utility Libraries
 
-- **date-fns:** Usado para manipulação de datas, resolvendo inconsistências nas conversões de data do JavaScript.
-- **react-dropzone:** Adotado para a implementação de áreas de arrastar e soltar arquivos.
-- **swiper:** Escolhido para a criação de carrosséis modernos e interativos.
-- *(definir biblioteca para máscaras de input)*
+- **date-fns:** Used for date manipulation, addressing inconsistencies in JavaScript date conversions.
+- **react-dropzone:** Adopted for implementing drag-and-drop file areas.
+- **swiper:** Chosen for creating modern and interactive carousels.
+- *(define library for input masks)*
 
-### Ferramentas de Linting e Formatação
+### Linting and Formatting Tools
 
-- **Prettier:** Implementado para garantir a consistência do formato do código.
-- **Tailwind Intellisense:** Utilizado para auxiliar no desenvolvimento com Tailwind CSS.
-- **ESLint:** Para configurações de padronização de código mais avançadas.
+- **Prettier:** Implemented to ensure code format consistency.
+- **Tailwind Intellisense:** Used to assist in development with Tailwind CSS.
+- **ESLint:** For more advanced code standardization configurations.
 
-### Sistema de Controle de Versão
+### Version Control System
 
-- **GitHub:** Escolhido por ser a plataforma mais popular e familiar para a equipe.
+- **GitHub:** Chosen for being the most popular and familiar platform for the team.
 
 ### CI/CD
 
-- **GitHub Actions:** Adotado para automação de CI/CD, facilitando a integração e entrega contínua. (ainda está sendo estudado)
+- **GitHub Actions:** Adopted for CI/CD automation, facilitating continuous integration and delivery. (still under consideration)
 
-## Padrões
+## Standards
 
-### Estrutura de Pastas
+### Folder Structure
 
-
+```plaintext
 └── src/
-
 ├── components/
-
 │ ├── elements/
-
-│ │ └── (Componentes menores, como botões e inputs)
-
+│ │ └── (Smaller components, like buttons and inputs)
 │ ├── modules/
-
-│ │ └── (Componentes complexos, como formulários e tabelas)
-
+│ │ └── (Complex components, like forms and tables)
 │ └── layout/
-
-│ └── (Componentes de layout, como cabeçalhos e rodapés)
-
+│ └── (Layout components, like headers and footers)
 ├── lib/
-
 │ ├── api/
-
 │ │ ├── axios/
-
-│ │ │ └── (Configurações e interceptadores Axios)
-
+│ │ │ └── (Axios configurations and interceptors)
 │ │ └── tanstackQuery/
-
-│ │ └── (Configurações e requisições com TanStack Query)
-
+│ │ └── (TanStack Query configurations and requests)
 │ ├── contexts/
-
-│ │ └── (Estados globais com Context)
-
+│ │ └── (Global states with Context)
 │ ├── hooks/
-
-│ │ └── (Custom hooks globais)
-
+│ │ └── (Global custom hooks)
 │ ├── types/
-
-│ │ └── (Definições de tipos globais)
-
+│ │ └── (Global type definitions)
 │ └── utils/
-
-│ └── (Funções utilitárias globais)
-
+│ └── (Global utility functions)
 ├── pages/
-
-│ └── (Componentes de página)
-
+│ └── (Page components)
 ├── routes/
-
-│ └── (Definição de rotas)
-
+│ └── (Route definitions)
 ├── styles/
-
-│ └── (Estilos globais)
-
+│ └── (Global styles)
 ├── App.tsx
-
 ├── index.tsx
-
 └── react-app-env.d.ts
-
-
-### Nomenclaturas
-
-- Os nomes devem ser descritivos e sem abreviações.
-- **Pastas:** camelCase.
-- **Arquivos:**
-  - Se exportam um único elemento, devem ter o mesmo nome do elemento.
-  - Se exportam múltiplos elementos, devem ter um nome que descreva sua funcionalidade geral.
-- **Componentes:** camelCase, com a extensão “.tsx”.
-- **Funções:** camelCase, com a extensão “.ts”.
-- **Hooks:** camelCase, começando com “use” e com a extensão “.ts”. Ex: useValidation.ts.
-- **Contexts:** camelCase, terminando com “Context” e com a extensão “.tsx”. Ex: LoadingScreenContext.tsx.
-- **Tipos:** camelCase, com a extensão “.d.ts”. Ex: userType.d.ts.
-- **TanStack Query Hooks:** camelCase, começando com “use” e terminando com “Queries” para arquivos com métodos de leitura, e com “Mutations” para arquivos com métodos de alteração de dados. Ex: useUserQueries, useUserMutations.
-
-### Elementos de Código
-
-- **Constantes globais:** UPPER_CASE.
-- **Demais constantes e variáveis:** camelCase.
-- **Componentes:** camelCase.
-- **Funções:** camelCase.
